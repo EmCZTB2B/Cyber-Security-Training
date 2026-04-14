@@ -31,7 +31,7 @@
         :root { --color-bg:#0a0a0f; --color-text:#f0eeff; --glow-rgb:212,0,97; }
         *,*::before,*::after{box-sizing:border-box;}
         html,body{background:var(--color-bg);margin:0;padding:0;}
-        body{font-family:'Inter',sans-serif;color:var(--color-text);overflow:hidden;height:100vh;width:100vw;font-size:18px;line-height:1.6;}
+        body{font-family:'Inter',sans-serif;color:var(--color-text);overflow:hidden;height:100vh;width:100vw;}
 
         /* ── DECK ── */
         .deck{width:100vw;height:100vh;position:relative;}
@@ -74,8 +74,8 @@
            They reveal one-by-one each time the user presses → or clicks the slide.
            All steps become visible when slide is exited.
         ── */
-        .step{opacity:0;transform:translateY(14px);transition:opacity 0.32s ease,transform 0.32s ease;visibility:hidden;}
-        .step.shown{opacity:1;transform:translateY(0);visibility:visible;}
+        .step{opacity:0;transform:translateY(14px);transition:opacity 0.32s ease,transform 0.32s ease;}
+        .step.shown{opacity:1;transform:translateY(0);}
 
         /* Click-hint pulse on nav arrow */
         @keyframes hint-pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,0,97,0.5);}50%{box-shadow:0 0 0 8px rgba(212,0,97,0);}}
@@ -132,47 +132,6 @@
 
         /* ── DECO SHAPES ── */
         .deco-shape{position:absolute;pointer-events:none;z-index:0;}
-
-        
-        /* ── ACCESSIBILITY / TRAINING-FRIENDLY PASS ── */
-        :root{--base-copy:clamp(1rem,0.96rem + 0.35vw,1.15rem);--small-copy:clamp(0.95rem,0.9rem + 0.2vw,1.05rem);--micro-copy:clamp(0.82rem,0.8rem + 0.12vw,0.92rem);}
-        body{font-size:var(--base-copy) !important;line-height:1.6 !important;}
-        .slide > .content{max-width:1280px !important;padding:clamp(1.4rem,3vw,3rem) clamp(1.4rem,4vw,4rem) !important;max-height:calc(100vh - 96px) !important;}
-        .section-tag{font-size:var(--micro-copy) !important;letter-spacing:0.16em !important;padding:0.35rem 0.8rem !important;margin-bottom:0.9rem !important;}
-        .slide h1,.slide h2{line-height:1.15 !important;letter-spacing:-0.01em;}
-        .slide p{font-size:var(--base-copy) !important;line-height:1.65 !important;max-width:72ch;}
-        .slide [style*="font-size:0.82rem"],.slide [style*="font-size:0.8rem"],.slide [style*="font-size:0.78rem"],.slide [style*="font-size:0.76rem"],.slide [style*="font-size:0.74rem"],.slide [style*="font-size:0.73rem"]{font-size:var(--small-copy) !important;line-height:1.6 !important;}
-        .slide [style*="font-size:0.65rem"],.slide [style*="font-size:0.7rem"]{font-size:var(--micro-copy) !important;line-height:1.5 !important;}
-        .tbb-card{padding:1.15rem 1.2rem !important;border-radius:14px !important;}
-        .red-flag,.green-action{font-size:var(--small-copy) !important;line-height:1.6 !important;padding:0.75rem 1rem !important;margin-bottom:0.6rem !important;}
-        .scenario-box{font-size:var(--small-copy) !important;line-height:1.7 !important;padding:1rem 1.1rem !important;}
-        .badge-danger,.badge-warn{font-size:0.82rem !important;padding:0.25rem 0.7rem !important;}
-        .nav-controls{bottom:18px !important;padding:10px 22px !important;gap:16px !important;}
-        .nav-btn{width:44px !important;height:44px !important;font-size:1.15rem !important;}
-        .dot{width:11px !important;height:11px !important;}
-        .slide-counter{font-size:0.9rem !important;min-width:56px !important;}
-        .click-hint{font-size:0.88rem !important;bottom:78px !important;}
-        .slide [style*="grid-template-columns:1fr 1fr"]{align-items:start;gap:1.1rem !important;}
-        .slide [style*="grid-template-columns:1fr 1fr 1fr"]{gap:0.95rem !important;}
-        @media (max-width: 1100px){
-            .slide > .content{max-width:1100px !important;max-height:calc(100vh - 110px) !important;overflow:auto !important;padding-bottom:6.5rem !important;}
-            .slide [style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr !important;}
-            .slide [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
-        }
-        @media (max-width: 768px){
-            body{font-size:1rem !important;}
-            .slide > .content{padding:1rem 1rem 6.6rem 1rem !important;max-height:calc(100vh - 96px) !important;overflow:auto !important;}
-            .slide h2{font-size:clamp(1.35rem,5vw,1.8rem) !important;}
-            .nav-controls{left:auto !important;right:12px !important;transform:none !important;max-width:calc(100vw - 24px);}
-            .slide-dots{max-width:160px !important;}
-            .click-hint{display:none !important;}
-        }
-        .slide[data-slide="13"] .content{padding-bottom:6rem !important;overflow:auto !important;}
-        .slide[data-slide="13"] [style*="padding-left:46px"]{padding-left:52px !important;}
-        .slide[data-slide="13"] [style*="position:relative;margin-bottom:0.75rem;min-height:32px;"]{margin-bottom:0.95rem !important;min-height:42px !important;}
-        .slide[data-slide="13"] .step-line{left:18px !important;}
-        .slide[data-slide="13"] .step-dot{left:12px !important;top:8px !important;}
-        .slide[data-slide="13"] [style*="background:rgba(255,51,51,0.07)"]{margin-top:0.9rem !important;padding:0.8rem 0.95rem !important;}
 
         /* ── CLICK HINT BAR ── */
         .click-hint{
@@ -284,7 +243,7 @@
     <canvas class="particle-canvas-ambient" style="position:absolute;inset:0;z-index:1;width:100%;height:100%;"></canvas>
     <div class="content">
         <div class="section-tag step">Section 1 — The Threat Landscape</div>
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:800;color:#f0eeff;margin-bottom:0.4rem;" class="step">Why This Matters to Think B2B</h2>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;color:#f0eeff;margin-bottom:0.4rem;" class="step">Why This Matters to Think B2B</h2>
         <p style="color:#b8b4d0;font-size:0.85rem;margin-bottom:1.1rem;max-width:680px;" class="step">As a B2B agency we hold sensitive client data, campaign IP, contact databases, financial terms and strategic plans. A single breach could end multiple client relationships simultaneously.</p>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.85rem;margin-bottom:1.1rem;" class="step">
             <div class="tbb-card" style="text-align:center;padding:0.8rem 0.5rem;">
@@ -323,7 +282,7 @@
     </div>
     <div class="content">
         <div class="section-tag step">Section 1 — Data We Hold</div>
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:800;color:#f0eeff;margin-bottom:0.4rem;" class="step">What Data Do We Handle Every Day?</h2>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;color:#f0eeff;margin-bottom:0.4rem;" class="step">What Data Do We Handle Every Day?</h2>
         <p style="color:#b8b4d0;font-size:0.83rem;margin-bottom:1rem;" class="step">Every team member handles at least one of these categories daily. All of it is a target.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.85rem;" class="step">
             <div class="tbb-card" style="border-left:3px solid #D40061;padding:0.9rem;">
@@ -371,7 +330,7 @@
     </div>
     <div class="content">
         <div class="section-tag step">Section 2 — Password Security</div>
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">Password Best Practice</h2>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">Password Best Practice</h2>
         <p style="color:#b8b4d0;font-size:0.82rem;margin-bottom:0.9rem;" class="step"><strong style="color:#ff3333;">80% of all data breaches</strong> involve stolen or weak passwords (Verizon DBIR). Your password is often the only barrier between an attacker and our client data.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;">
             <div>
@@ -406,7 +365,7 @@
     </div>
     <div class="content">
         <div class="section-tag step">Section 2 — Multi-Factor Authentication</div>
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">MFA — Your Second Line of Defence</h2>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">MFA — Your Second Line of Defence</h2>
         <p style="color:#b8b4d0;font-size:0.82rem;margin-bottom:0.9rem;" class="step">MFA blocks <strong style="color:#00ff41;">99.9%</strong> of automated credential attacks (Microsoft Security). Even with your password stolen, attackers cannot get in without your second factor.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;">
             <div>
@@ -446,7 +405,7 @@
     </div>
     <div class="content">
         <div class="section-tag step">Section 3 — Phishing, Vishing & Smishing</div>
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">Recognising the Attack</h2>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">Recognising the Attack</h2>
         <p style="color:#b8b4d0;font-size:0.82rem;margin-bottom:0.9rem;" class="step">Phishing causes <strong style="color:#D40061;">84% of all cyber incidents</strong>. As an agency communicating with dozens of clients and vendors daily, we are a prime target.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;">
             <div>
@@ -514,7 +473,7 @@
     <canvas class="particle-canvas-ambient" style="position:absolute;inset:0;z-index:1;width:100%;height:100%;"></canvas>
     <div class="content">
         <div class="section-tag step">Section 4 — Sophisticated Scams</div>
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">AI, Deepfakes & Social Engineering</h2>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">AI, Deepfakes & Social Engineering</h2>
         <p style="color:#b8b4d0;font-size:0.82rem;margin-bottom:0.9rem;" class="step">Attackers now clone voices, replicate email styles, and build pixel-perfect fake login pages using AI. The verification habit is your only reliable defence.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;">
             <div>
@@ -550,7 +509,7 @@
     </div>
     <div class="content">
         <div class="section-tag step">Section 5 — Remote Working</div>
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">Staying Secure Outside the Office</h2>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">Staying Secure Outside the Office</h2>
         <p style="color:#b8b4d0;font-size:0.82rem;margin-bottom:0.85rem;" class="step">Same standards at home as in the office — no exceptions.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;">
             <div>
@@ -589,7 +548,7 @@
     </div>
     <div class="content">
         <div class="section-tag step">Section 6 — Data Handling</div>
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">Cloud Security & Approved Platforms</h2>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">Cloud Security & Approved Platforms</h2>
         <p style="color:#b8b4d0;font-size:0.82rem;margin-bottom:0.85rem;" class="step">Microsoft 365 is our <strong style="color:#fff;">only</strong> approved platform for client and business data. Using personal tools is a policy breach and a potential GDPR violation.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;">
             <div>
@@ -621,7 +580,7 @@
     </div>
     <div class="content">
         <div class="section-tag step">Section 7 — Legal & Compliance</div>
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">UK GDPR, ISO 27001 & EcoVadis</h2>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">UK GDPR, ISO 27001 & EcoVadis</h2>
         <p style="color:#b8b4d0;font-size:0.82rem;margin-bottom:0.9rem;" class="step">Cyber security is a legal obligation. Breaches can mean regulatory fines, client contract penalties and reputational damage that directly impacts our ability to win business.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;margin-bottom:0.75rem;" class="step">
             <div class="tbb-card" style="border-top:3px solid #D40061;padding:0.85rem;">
@@ -656,7 +615,7 @@
 <!-- ════════════════════════════════════
      SLIDE 13 — INCIDENT REPORTING
 ════════════════════════════════════ -->
-<div class="slide" data-slide="13" data-steps="15">
+<div class="slide" data-slide="13" data-steps="11">
     <div class="gradient-mesh">
         <div class="blob" style="width:380px;height:380px;top:-95px;right:-95px;background:#D40061;opacity:0.11;"></div>
         <div class="blob" style="width:260px;height:260px;bottom:-75px;left:-45px;background:#ff4d9a;opacity:0.07;"></div>
@@ -664,44 +623,39 @@
     <canvas class="particle-canvas-ambient" style="position:absolute;inset:0;z-index:1;width:100%;height:100%;"></canvas>
     <div class="content">
         <div class="section-tag step">Section 8 — Incident Response</div>
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">What To Do If Something Goes Wrong</h2>
-        <p style="color:#b8b4d0;font-size:0.82rem;margin-bottom:0.85rem;" class="step">Act quickly, report honestly. <strong style="color:#ff3333;">There is no blame for reporting. There IS liability for concealing.</strong></p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;">
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.45rem,3vw,2.15rem);font-weight:800;color:#f0eeff;margin-bottom:0.35rem;line-height:1.12;" class="step">What To Do If Something Goes Wrong</h2>
+        <p style="color:#c8c3dc;font-size:0.95rem;line-height:1.55;margin-bottom:0.95rem;" class="step">Act quickly, report honestly. <strong style="color:#ff3333;">There is no blame for reporting. There IS liability for concealing.</strong></p>
+        <div style="display:grid;grid-template-columns:1.08fr 0.92fr;gap:1rem;align-items:start;">
             <div>
-                <div style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;color:#00ff41;font-weight:700;letter-spacing:0.1em;margin-bottom:0.6rem;" class="step">5-STEP RESPONSE PROTOCOL</div>
-                <div style="position:relative;padding-left:46px;">
-                    <div class="step-line"></div>
-                    <div style="position:relative;margin-bottom:0.75rem;min-height:32px;" class="step">
-                        <div class="step-dot"></div>
-                        <div style="font-size:0.78rem;"><strong style="color:#fff;">STOP</strong> — Close browser/email. Disconnect Wi-Fi if actively under attack.</div>
-                    </div>
-                    <div style="position:relative;margin-bottom:0.75rem;min-height:32px;" class="step">
-                        <div class="step-dot"></div>
-                        <div style="font-size:0.78rem;"><strong style="color:#fff;">REPORT</strong> — Emma Czirok: <span style="font-family:'JetBrains Mono',monospace;color:#ff9dcd;font-size:0.73rem;">emma.czirok@thinkb2bmarketing.com</span> / 01977 708643</div>
-                    </div>
-                    <div style="position:relative;margin-bottom:0.75rem;min-height:32px;" class="step">
-                        <div class="step-dot"></div>
-                        <div style="font-size:0.78rem;"><strong style="color:#fff;">NOTIFY</strong> — Cath Mace + <span style="font-family:'JetBrains Mono',monospace;color:#ff9dcd;font-size:0.73rem;">support@singularitee.co.uk</span></div>
-                    </div>
-                    <div style="position:relative;margin-bottom:0.75rem;min-height:32px;" class="step">
-                        <div class="step-dot"></div>
-                        <div style="font-size:0.78rem;"><strong style="color:#fff;">DOCUMENT</strong> — What happened, when, what data may be affected</div>
-                    </div>
-                    <div style="position:relative;min-height:32px;" class="step">
-                        <div class="step-dot" style="background:#ffa500;box-shadow:0 0 10px rgba(255,165,0,0.7);"></div>
-                        <div style="font-size:0.78rem;"><strong style="color:#fff;">AWAIT GUIDANCE</strong> — Do not fix or delete anything without IT direction</div>
-                    </div>
+                <div style="font-size:0.78rem;font-family:'JetBrains Mono',monospace;color:#00ff41;font-weight:700;letter-spacing:0.1em;margin-bottom:0.65rem;" class="step">5-STEP RESPONSE PROTOCOL</div>
+                <div class="step" style="display:grid;grid-template-columns:44px 1fr;gap:0.8rem;align-items:start;background:rgba(212,0,97,0.06);border:1px solid rgba(212,0,97,0.14);border-radius:12px;padding:0.8rem 0.9rem;margin-bottom:0.65rem;">
+                    <div style="width:32px;height:32px;border-radius:50%;background:#D40061;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:0.9rem;box-shadow:0 0 14px rgba(212,0,97,0.35);">1</div>
+                    <div style="font-size:0.97rem;line-height:1.5;"><strong style="color:#fff;">STOP</strong> — Close browser or email and disconnect Wi-Fi if you believe an attack is active.</div>
+                </div>
+                <div class="step" style="display:grid;grid-template-columns:44px 1fr;gap:0.8rem;align-items:start;background:rgba(212,0,97,0.06);border:1px solid rgba(212,0,97,0.14);border-radius:12px;padding:0.8rem 0.9rem;margin-bottom:0.65rem;">
+                    <div style="width:32px;height:32px;border-radius:50%;background:#D40061;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:0.9rem;box-shadow:0 0 14px rgba(212,0,97,0.35);">2</div>
+                    <div style="font-size:0.97rem;line-height:1.5;"><strong style="color:#fff;">REPORT</strong> — Emma Czirok: <span style="font-family:'JetBrains Mono',monospace;color:#ff9dcd;font-size:0.88rem;">emma.czirok@thinkb2bmarketing.com</span> / 01977 708643</div>
+                </div>
+                <div class="step" style="display:grid;grid-template-columns:44px 1fr;gap:0.8rem;align-items:start;background:rgba(212,0,97,0.06);border:1px solid rgba(212,0,97,0.14);border-radius:12px;padding:0.8rem 0.9rem;margin-bottom:0.65rem;">
+                    <div style="width:32px;height:32px;border-radius:50%;background:#D40061;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:0.9rem;box-shadow:0 0 14px rgba(212,0,97,0.35);">3</div>
+                    <div style="font-size:0.97rem;line-height:1.5;"><strong style="color:#fff;">NOTIFY</strong> — Cath Mace and <span style="font-family:'JetBrains Mono',monospace;color:#ff9dcd;font-size:0.88rem;">support@singularitee.co.uk</span></div>
+                </div>
+                <div class="step" style="display:grid;grid-template-columns:44px 1fr;gap:0.8rem;align-items:start;background:rgba(212,0,97,0.06);border:1px solid rgba(212,0,97,0.14);border-radius:12px;padding:0.8rem 0.9rem;margin-bottom:0.65rem;">
+                    <div style="width:32px;height:32px;border-radius:50%;background:#D40061;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:0.9rem;box-shadow:0 0 14px rgba(212,0,97,0.35);">4</div>
+                    <div style="font-size:0.97rem;line-height:1.5;"><strong style="color:#fff;">DOCUMENT</strong> — Record what happened, when it happened, and what data may be affected.</div>
+                </div>
+                <div class="step" style="display:grid;grid-template-columns:44px 1fr;gap:0.8rem;align-items:start;background:rgba(255,165,0,0.08);border:1px solid rgba(255,165,0,0.2);border-radius:12px;padding:0.8rem 0.9rem;">
+                    <div style="width:32px;height:32px;border-radius:50%;background:#ffa500;color:#111;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:0.9rem;box-shadow:0 0 14px rgba(255,165,0,0.28);">5</div>
+                    <div style="font-size:0.97rem;line-height:1.5;"><strong style="color:#fff;">AWAIT GUIDANCE</strong> — Do not fix, delete, or alter anything until IT tells you what to do.</div>
                 </div>
             </div>
             <div>
-                <div style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;color:#ff3333;font-weight:700;letter-spacing:0.1em;margin-bottom:0.55rem;" class="step">NEVER DO THE FOLLOWING</div>
-                <div class="red-flag step" style="font-size:0.78rem;">Try to resolve it without IT involvement</div>
-                <div class="red-flag step" style="font-size:0.78rem;">Delete files or emails related to the incident</div>
-                <div class="red-flag step" style="font-size:0.78rem;">Delay reporting hoping it "resolves itself"</div>
-                <div class="red-flag step" style="font-size:0.78rem;">Discuss externally or on social media</div>
-                <div style="margin-top:0.65rem;background:rgba(255,51,51,0.07);border:1px solid rgba(255,51,51,0.2);border-radius:8px;padding:0.6rem 0.8rem;font-size:0.76rem;color:#ff8888;" class="step">
-                    ⏱️ ICO obligation: report serious breaches within <strong>72 hours</strong>. Early internal reporting gives us time to act.
-                </div>
+                <div style="font-size:0.78rem;font-family:'JetBrains Mono',monospace;color:#ff3333;font-weight:700;letter-spacing:0.1em;margin-bottom:0.6rem;" class="step">NEVER DO THE FOLLOWING</div>
+                <div class="red-flag step" style="font-size:0.95rem;line-height:1.5;padding:0.75rem 0.95rem;">Try to resolve it without IT involvement</div>
+                <div class="red-flag step" style="font-size:0.95rem;line-height:1.5;padding:0.75rem 0.95rem;">Delete files or emails related to the incident</div>
+                <div class="red-flag step" style="font-size:0.95rem;line-height:1.5;padding:0.75rem 0.95rem;">Delay reporting hoping it “resolves itself”</div>
+                <div class="red-flag step" style="font-size:0.95rem;line-height:1.5;padding:0.75rem 0.95rem;">Discuss the incident externally or on social media</div>
+                <div style="margin-top:0.75rem;background:rgba(255,51,51,0.07);border:1px solid rgba(255,51,51,0.2);border-radius:10px;padding:0.8rem 0.95rem;font-size:0.92rem;line-height:1.5;color:#ff9a9a;" class="step">⏱️ ICO obligation: serious breaches may need reporting within <strong>72 hours</strong>. Early internal escalation gives us time to act.</div>
             </div>
         </div>
     </div>
@@ -717,7 +671,7 @@
     </div>
     <div class="content">
         <div class="section-tag step">Section 8 — Your Commitments</div>
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">Think B2B Policy & Your Responsibilities</h2>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:800;color:#f0eeff;margin-bottom:0.3rem;" class="step">Think B2B Policy & Your Responsibilities</h2>
         <p style="color:#b8b4d0;font-size:0.82rem;margin-bottom:0.85rem;" class="step">Policy <span style="font-family:'JetBrains Mono',monospace;color:#D40061;">TBB-POL-012</span> is on BrightHR. Completing this training confirms you have read, understood and will comply.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;">
             <div>
